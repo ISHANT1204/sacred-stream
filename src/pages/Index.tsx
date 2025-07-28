@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Star, Calendar, Clock, MapPin, Phone, Mail, Menu, X, User, Heart, BookOpen, Home } from 'lucide-react';
+import { Star, Calendar, Clock, MapPin, Phone, Mail, Menu, X, User, Heart, BookOpen, Home, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
 import ServiceCard from '@/components/ServiceCard';
@@ -119,6 +120,15 @@ const Index = () => {
               />
             ))}
           </div>
+          
+          <div className="text-center mt-12">
+            <Link to="/services">
+              <Button variant="outline" size="lg">
+                View All Services
+                <ArrowRight className="h-4 w-4 ml-2" />
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -142,6 +152,15 @@ const Index = () => {
                 onBook={() => handleBookService('pandit-booking')}
               />
             ))}
+          </div>
+          
+          <div className="text-center mt-12">
+            <Link to="/pandits">
+              <Button variant="outline" size="lg">
+                View All Pandits
+                <ArrowRight className="h-4 w-4 ml-2" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

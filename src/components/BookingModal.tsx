@@ -14,17 +14,19 @@ import { cn } from '@/lib/utils';
 interface BookingModalProps {
   isOpen: boolean;
   onClose: () => void;
-  selectedService: string;
+  selectedService?: string;
+  serviceId?: string;
 }
 
-const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, selectedService }) => {
+const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, selectedService, serviceId }) => {
+  const currentService = selectedService || serviceId || '';
   const [date, setDate] = useState<Date>();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     address: '',
-    service: selectedService,
+    service: currentService,
     time: '',
     specialRequests: ''
   });
@@ -65,7 +67,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose, selectedSe
             Book Your Service
           </DialogTitle>
           <DialogDescription>
-            Fill in your details to book {serviceLabels[selectedService as keyof typeof serviceLabels] || 'our service'}
+            Fill in your details to book {serviceLabels[currentService as keyof typeof serviceLabels] || 'our service'}
           </DialogDescription>
         </DialogHeader>
         

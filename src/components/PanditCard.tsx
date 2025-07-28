@@ -6,15 +6,16 @@ import { Badge } from '@/components/ui/badge';
 import { Star, MapPin, Clock, Languages } from 'lucide-react';
 
 interface Pandit {
-  id: number;
+  id: string | number;
   name: string;
-  speciality: string;
+  specialty?: string;
+  speciality?: string;
   rating: number;
   reviews: number;
-  experience: string;
+  experience: string | number;
   languages: string[];
   image: string;
-  price: string;
+  price: string | number;
 }
 
 interface PanditCardProps {
@@ -23,7 +24,8 @@ interface PanditCardProps {
 }
 
 const PanditCard: React.FC<PanditCardProps> = ({ pandit, onBook }) => {
-  const { name, speciality, rating, reviews, experience, languages, image, price } = pandit;
+  const { name, specialty, speciality, rating, reviews, experience, languages, image, price } = pandit;
+  const displaySpecialty = specialty || speciality;
 
   return (
     <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
@@ -37,7 +39,7 @@ const PanditCard: React.FC<PanditCardProps> = ({ pandit, onBook }) => {
         </div>
         <CardTitle className="text-xl font-bold mb-1">{name}</CardTitle>
         <CardDescription className="text-primary font-medium">
-          {speciality}
+          {displaySpecialty}
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
