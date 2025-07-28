@@ -23,7 +23,7 @@ const Navigation = () => {
             <div className="w-8 h-8 rounded-full spiritual-gradient flex items-center justify-center">
               <Heart className="h-5 w-5 text-white" />
             </div>
-            <span className="text-xl font-bold spiritual-text-gradient">PanditConnect</span>
+            <span className="text-xl font-bold spiritual-text-gradient">PathPooja</span>
           </Link>
 
           {/* Desktop Navigation */}
